@@ -15,7 +15,10 @@ export default function Logout() {
                     onClick={logout}
                     className="w-full px-5 py-2.5 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
                 >
-                    Logout <span className="text-xs">(!)</span>
+                    Logout{' '}
+                    <span className="text-xs">
+                        (and clear LocalStorage too!)
+                    </span>
                 </button>
             </div>
         </div>
