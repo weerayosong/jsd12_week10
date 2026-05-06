@@ -1,21 +1,20 @@
-import { useState } from 'react'
-import './App.css'
+import { useContext } from 'react'
+import { AuthContext } from './context/AuthContext'
+import { AuthProvider } from './context/AuthProvider'
+import Login from './components/Login'
+import Logout from './components/Logout'
+
+function AppContent() {
+    const { isAuthenticated } = useContext(AuthContext)
+
+    return <main>{isAuthenticated ? <Logout /> : <Login />}</main>
+}
 
 function App() {
-    const [count, setCount] = useState(0)
-
     return (
-        <>
-            <section id="center">
-                <button
-                    type="button"
-                    className="counter p-2 border border-red-500"
-                    onClick={() => setCount((count) => count + 1)}
-                >
-                    Count is {count}
-                </button>
-            </section>
-        </>
+        <AuthProvider>
+            <AppContent />
+        </AuthProvider>
     )
 }
 

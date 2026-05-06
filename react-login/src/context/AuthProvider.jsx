@@ -5,12 +5,12 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false)
     const [user, setUser] = useState(null)
 
-    const login = (userData) => {
-        console.log('This is login')
+    const login = () => {
+        setIsAuthenticated(true)
     }
 
     const logout = () => {
-        console.log('this log out')
+        setIsAuthenticated(false)
     }
 
     return (
